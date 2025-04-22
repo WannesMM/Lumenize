@@ -79,8 +79,11 @@ export const SpiderChart: React.FC<SpiderChartProps> = ({
         {/* Data polygon */}
         <Polygon
           points={chartPointsString}
-          fill={Colors.primary + '40'} // Add 40 for 25% opacity
           stroke={Colors.primary}
+          fill={Colors.secondary}
+          fillOpacity={0.6}
+          // fill={Colors.primary + '40'} // Add 40 for 25% opacity
+          // stroke={Colors.primary}
           strokeWidth={2}
         />
         

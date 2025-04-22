@@ -1,6 +1,7 @@
 export const Colors = {
-  primary: '#6366F1', // Indigo
-  secondary: '#0EA5E9', // Sky
+  primary: '#13456FFF', //'#6366F1', // Indigo
+  secondary: '#00a395ff', // Sky
+  assesementbutton: '#0d627bff', // Sky
   accent: '#F97066', // Coral
   success: '#10B981', // Emerald
   warning: '#F59E0B', // Amber

@@ -62,9 +62,26 @@ export const QualityRating: React.FC<QualityRatingProps> = ({
         <Text style={styles.qualityName}>{quality?.name}</Text>
         <Text style={styles.qualityDescription}>{quality?.description}</Text>
       </View>
+
+            <View style={styles.section}>
+        <Text style={styles.sectionTitle}>How can you leverage this skill to elevate your team’s performance?</Text>
+        <TextInput
+          style={styles.motivationInput}
+          placeholder="Briefly describe..."
+          placeholderTextColor={Colors.gray[400]}
+          value={motivation}
+          onChangeText={setMotivation}
+          multiline
+          numberOfLines={4}
+          textAlignVertical="top"
+        />
+        <Text style={styles.characterCount}>
+          {motivation.length} characters (minimum 10)
+        </Text>
+      </View>
       
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>How would you rate yourself?</Text>
+        <Text style={styles.sectionTitle}>How would you rate this strength?</Text>
         <View style={styles.ratingContainer}>
           {[1, 2, 3, 4, 5].map((value) => (
             <TouchableOpacity
@@ -93,22 +110,6 @@ export const QualityRating: React.FC<QualityRatingProps> = ({
         </View>
       </View>
       
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Explain your rating</Text>
-        <TextInput
-          style={styles.motivationInput}
-          placeholder="Provide examples or specific situations that justify your rating..."
-          placeholderTextColor={Colors.gray[400]}
-          value={motivation}
-          onChangeText={setMotivation}
-          multiline
-          numberOfLines={4}
-          textAlignVertical="top"
-        />
-        <Text style={styles.characterCount}>
-          {motivation.length} characters (minimum 10)
-        </Text>
-      </View>
       
       <View style={styles.buttonsContainer}>
         {!isFirstQuality && (
@@ -214,6 +215,7 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     marginTop: 8,
     textAlign: 'right',
+    marginBottom: 150,
   },
   buttonsContainer: {
     flexDirection: 'row',

@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import {   View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Image, } from 'react-native';
 import { useRouter } from 'expo-router';
 import { UserCircle2, Users2, Building2, ClipboardCheck } from 'lucide-react-native';
 import { Colors } from '@/constants/Colors';
@@ -23,23 +28,31 @@ export default function HomeScreen() {
   };
 
   return (
-    <ScrollView 
-      style={styles.container}
-      contentContainerStyle={styles.content}
-      showsVerticalScrollIndicator={false}
-    >
-      <View style={styles.header}>
-        <Text style={styles.welcomeText}>Welcome back,</Text>
-        <Text style={styles.nameText}>{currentUser.name}</Text>
-        
-        <TouchableOpacity 
-          style={styles.assessmentButton}
-          onPress={navigateToQuestionnaire}
-        >
-          <ClipboardCheck size={20} color={Colors.white} />
-          <Text style={styles.assessmentButtonText}>Start Assessment</Text>
-        </TouchableOpacity>
-      </View>
+    <ScrollView
+    style={styles.container}
+    contentContainerStyle={styles.content}
+    showsVerticalScrollIndicator={false}
+  >
+
+    <View style={styles.logoContainer}>
+      <Image
+        source={require('@/assets/images/logo_name.png')}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+    </View>
+
+    <View style={styles.header}>
+      <Text style={styles.welcomeText}>Welcome back,</Text>
+      <Text style={styles.nameText}>{currentUser.name}</Text>
+      <TouchableOpacity
+        style={styles.assessmentButton}
+        onPress={navigateToQuestionnaire}
+      >
+        <ClipboardCheck size={20} color={Colors.white} />
+        <Text style={styles.assessmentButtonText}>Start Assessment</Text>
+      </TouchableOpacity>
+    </View>
       
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
@@ -110,11 +123,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.backgroundPrimary,
   },
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  logo: {
+    width: 200,
+    height: 200,
+  },
+
   content: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 0,      // pull content (logo) all the way up
+    paddingBottom: 16,
   },
   header: {
     backgroundColor: Colors.primary,
+    marginTop: -40, 
     padding: 24,
     borderRadius: 12,
     marginBottom: 24,
@@ -135,7 +160,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor:'rgba(255, 255, 255, 0.2)',
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 8,
